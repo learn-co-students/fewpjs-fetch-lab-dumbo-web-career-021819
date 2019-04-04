@@ -1,4 +1,7 @@
 function fetchBooks() {
+  fetch('https://anapioficeandfire.com/api/books') // creates a GET request to get the data from this webpage
+  .then(resp => resp.json()) // turns the response into JSON
+  .then(json => renderBooks(json)) // takes this JSON and does something with it. 
 }
 
 function renderBooks(json) {
