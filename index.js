@@ -1,6 +1,4 @@
-function fetchBooks() {
-}
-
+console.log("connected")
 function renderBooks(json) {
   const main = document.querySelector('main')
   json.forEach(book => {
@@ -8,6 +6,13 @@ function renderBooks(json) {
     h2.innerHTML = `<h2>${book.name}</h2>`
     main.appendChild(h2)
   })
+}
+
+
+function fetchBooks() {
+  fetch('https://anapioficeandfire.com/api/books')
+    .then(response => response.json())
+    .then(books => renderBooks(books))
 }
 
 document.addEventListener('DOMContentLoaded', function() {
